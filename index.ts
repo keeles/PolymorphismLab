@@ -1,9 +1,11 @@
 import { LinkedListGroup } from "./linkedList";
+import { NumberGroup } from "./numberGroup";
+import { ISortable } from "./sortable";
 
 class SortUtil {
-    collection: number[] | string | LinkedListGroup;
+    collection: ISortable;
 
-    constructor(collection: number[] | string | LinkedListGroup) {
+    constructor(collection: ISortable) {
         this.collection = collection;
     }
 
@@ -39,7 +41,7 @@ class SortUtil {
         }
     }
 }
-
-// const sortUtil = new SorterUtil([10, 3, -5, 0]);
-// sortUtil.sort();
-// console.log(sorter.collection);
+const newNumberGroup = new NumberGroup([10, 3, -5, 0])
+const sortUtil = new SortUtil(newNumberGroup);
+sortUtil.sort();
+console.log(sortUtil.collection);

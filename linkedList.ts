@@ -52,7 +52,7 @@ export class LinkedListGroup implements ISortable {
     if (!leftPos || !rightPos) {
       throw new Error("Error: Index out of bounds")
     }
-    return leftPos > rightPos; //! This probably not correct
+    return leftPos > rightPos;
   }
 
   swap(leftPos: number, rightPos: number): void {
@@ -61,7 +61,7 @@ export class LinkedListGroup implements ISortable {
     }
     const holdRightPos = rightPos
     leftPos = rightPos
-    rightPos = holdRightPos //! This probably also not correct
+    rightPos = holdRightPos
   }
 
   print(): void {
