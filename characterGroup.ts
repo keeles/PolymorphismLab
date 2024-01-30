@@ -3,6 +3,10 @@ import { ISortable } from "./sortable";
 export class CharacterGroup implements ISortable {
     private _data!: string;
 
+    constructor(string: string) {
+        this._data = string;
+    }
+
     get data(): string {
         return this._data
     }

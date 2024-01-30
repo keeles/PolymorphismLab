@@ -1,3 +1,4 @@
+import { CharacterGroup } from "./characterGroup";
 import { LinkedListGroup } from "./linkedList";
 import { NumberGroup } from "./numberGroup";
 import { ISortable } from "./sortable";
@@ -27,8 +28,7 @@ class SortUtil {
 }
 
 
-const newNumberGroup = new NumberGroup([10, 3, -5, 0])
-const sortUtil = new SortUtil(newNumberGroup)
+
 const newLinkedList = new LinkedListGroup()
 newLinkedList.add(520)
 newLinkedList.add(-10)
@@ -38,4 +38,11 @@ const sorter3 = new SortUtil(newLinkedList)
 sorter3.sort()
 newLinkedList.print()
 
+const characterGroup = new CharacterGroup("Xaeyb");
+const sorter2 = new SortUtil(characterGroup)
+sorter2.sort();
+console.log(characterGroup.data)
+
+const newNumberGroup = new NumberGroup([10, 3, -5, 0])
+const sortUtil = new SortUtil(newNumberGroup)
 console.log(sortUtil.collection)

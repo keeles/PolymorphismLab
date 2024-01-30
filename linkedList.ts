@@ -52,19 +52,21 @@ export class LinkedListGroup implements ISortable {
   }
 
   compare(leftPos: number, rightPos: number): boolean {
-    if (!this.at(leftPos) || !this.at(rightPos)) {
-      throw new Error("Error: Comparison Error")
+    if (!this.at(leftPos)._data || !this.at(rightPos)._data) {
+      throw new Error("Error: No Nodes to compare at the index passed in")
     }
-    return this.at(leftPos) > this.at(rightPos);
+    return this.at(leftPos)._data > this.at(rightPos)._data;
   }
 
   swap(leftPos: number, rightPos: number): void {
-    if (!this.at(leftPos) || !this.at(rightPos)) {
+    if (!this.at(leftPos)._data || !this.at(rightPos)._data) {
       throw new Error("Error: cannot swap positions that do not exist")
     }
-    const holdNextPos = this.at(rightPos)
-    // this.at(rightPos) = this.at(leftPos)
-    // this.at(leftPos) = holdNextPos
+    let leftNodeData = this.at(leftPos)
+    let rightNodeData = this.at(rightPos)
+    let temp = leftNodeData._data;
+    leftNodeData._data = rightNodeData._data;
+    rightNodeData._data = temp;
   }
 
   print(): void {
