@@ -2,7 +2,10 @@ import { ISortable } from "./sortable";
 
 class Node {
   next: Node | null = null;
-  constructor(public data: number) { }
+  _data: number;
+  constructor(public data: number) {
+    this._data = data;
+  }
 }
 
 export class LinkedListGroup implements ISortable {
@@ -49,19 +52,19 @@ export class LinkedListGroup implements ISortable {
   }
 
   compare(leftPos: number, rightPos: number): boolean {
-    if (!leftPos || !rightPos) {
+    if (!this.at(leftPos) || !this.at(rightPos)) {
       throw new Error("Error: Comparison Error")
     }
-    return leftPos > rightPos;
+    return this.at(leftPos) > this.at(rightPos);
   }
 
   swap(leftPos: number, rightPos: number): void {
-    if (!leftPos || !rightPos) {
+    if (!this.at(leftPos) || !this.at(rightPos)) {
       throw new Error("Error: cannot swap positions that do not exist")
     }
-    const holdRightPos = rightPos
-    leftPos = rightPos
-    rightPos = holdRightPos
+    const holdNextPos = this.at(rightPos)
+    // this.at(rightPos) = this.at(leftPos)
+    // this.at(leftPos) = holdNextPos
   }
 
   print(): void {

@@ -12,18 +12,18 @@ export class NumberGroup implements ISortable {
     };
 
     swap(leftPos: number, rightPos: number): void {
-        if (!leftPos || !rightPos) {
+        if (!this._data[leftPos] || !this._data[rightPos]) {
             throw new Error("Error: Index out of bounds")
         }
-        let placeHolderPos = leftPos;
-        leftPos = rightPos
-        rightPos = placeHolderPos
+        let placeHolderPos = this._data[leftPos]
+        this._data[leftPos] = this._data[rightPos]
+        this._data[rightPos] = placeHolderPos
     };
 
     compare(leftPos: number, rightPos: number): boolean {
-        if (!leftPos || !rightPos) {
+        if (!this._data[leftPos] || !this._data[rightPos]) {
             throw new Error("Error: Index out of bounds")
         }
-        return leftPos > rightPos
+        return this._data[leftPos] > this._data[rightPos]
     };
 }  

@@ -16,11 +16,9 @@ class SortUtil {
         while (!isSorted) {
             isSorted = true;
             for (let i = 0; i < lastUnsorted; i++) {
-                if (this.collection instanceof Array) {
-                    if (this.collection.compare(this.collection[i], this.collection[i + 1])) {
-                        this.collection.swap(this.collection[i], this.collection[i + 1])
-                        isSorted = false;
-                    }
+                if (this.collection.compare(i, i + 1)) {
+                    this.collection.swap(i, i + 1)
+                    isSorted = false;
                 }
                 lastUnsorted--
             }
@@ -31,5 +29,13 @@ class SortUtil {
 
 const newNumberGroup = new NumberGroup([10, 3, -5, 0])
 const sortUtil = new SortUtil(newNumberGroup)
-sortUtil.sort();
+const newLinkedList = new LinkedListGroup()
+newLinkedList.add(520)
+newLinkedList.add(-10)
+newLinkedList.add(-7)
+newLinkedList.add(4)
+const sorter3 = new SortUtil(newLinkedList)
+sorter3.sort()
+newLinkedList.print()
+
 console.log(sortUtil.collection)
