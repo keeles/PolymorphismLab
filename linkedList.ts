@@ -50,7 +50,7 @@ export class LinkedListGroup implements ISortable {
 
   compare(leftPos: number, rightPos: number): boolean {
     if (!leftPos || !rightPos) {
-      throw new Error("Error: Index out of bounds")
+      throw new Error("Error: Comparison Error")
     }
     return leftPos > rightPos;
   }

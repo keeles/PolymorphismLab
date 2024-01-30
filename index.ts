@@ -16,32 +16,20 @@ class SortUtil {
         while (!isSorted) {
             isSorted = true;
             for (let i = 0; i < lastUnsorted; i++) {
-                // HANDLE LINKED LIST LOGIC HERE 
-                if (this.collection instanceof LinkedListGroup) {
-                    // HELP! -Sarah
-                }
-
-                // HANDLE LIST OF NUMBERS LOGIC HERE
-                // I GOT IT TO WORK WITH ARRAY OF NUMBERS
                 if (this.collection instanceof Array) {
-                    if (this.collection[i] > this.collection[i + 1]) {
-                        let tempLeft = this.collection[i];
-                        this.collection[i] = this.collection[i + 1];
-                        this.collection[i + 1] = tempLeft;
+                    if (this.collection.compare(this.collection[i], this.collection[i + 1])) {
+                        this.collection.swap(this.collection[i], this.collection[i + 1])
                         isSorted = false;
                     }
                 }
-
-                // HANDLE STRING LOGIC HERE
-                if (typeof this.collection === "string") {
-                    // HELP! -Sarah
-                }
+                lastUnsorted--
             }
-            lastUnsorted--;
         }
     }
 }
+
+
 const newNumberGroup = new NumberGroup([10, 3, -5, 0])
-const sortUtil = new SortUtil(newNumberGroup);
+const sortUtil = new SortUtil(newNumberGroup)
 sortUtil.sort();
-console.log(sortUtil.collection);
+console.log(sortUtil.collection)
